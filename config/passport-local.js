@@ -40,7 +40,7 @@ passport.checkAuthetication=function(req,res,next){
         return next();
     }
     else
-        res.redirect('/user/sign-in-page');
+        res.redirect('/user/sign-up-page');
 };
 
 passport.setAuthenticatedUser=function(req,res,next){

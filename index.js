@@ -1,20 +1,22 @@
 const express=require('express');
 const port=8020;
 const app=express();
+const db=require('./config/mongoose');
 
 const ejsLayouts=require('express-ejs-layouts');
+
+app.use(express.static('assets'));
+app.use(express.urlencoded());
+
 app.use(ejsLayouts);
-app.set('layout extractStyles',true);
-app.set('layout extractScripts',true);
+
+// app.set('layout extractStyles',true);
+// app.set('layout extractScripts',true);
 
 //Setting the view Engine
 app.set('view engine','ejs');
 //Setting the views(ejs)
 app.set('views','./views');
-app.use(express.urlencoded());
-
-//importing database
-const db=require('./config/mongoose');
 
 // Routes
 app.use('/',require('./routes/index.js'));
@@ -25,7 +27,7 @@ const expressSession=require('express-session')({
     saveUninitialized:false
 });
 //Importing assets
-app.use(express.static('assets'));
+
 app.use(expressSession);
 app.listen(port,function(err){
     if(err)
