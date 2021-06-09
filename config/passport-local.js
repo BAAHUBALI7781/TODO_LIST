@@ -3,8 +3,7 @@ const passportLocal=require('passport-local').Strategy;
 const User=require('../model/user');
 
 passport.use(new passportLocal({
-    usernameField:'email',
-    passReqToCallback:true
+    usernameField:'email'
 },function(email,password,done){
     User.findOne({email:email},function(err,user){
         if(err){
@@ -46,7 +45,7 @@ passport.checkAuthetication=function(req,res,next){
 passport.setAuthenticatedUser=function(req,res,next){
     if(req.isAuthenticated())
     {
-        req.locals.user=req.user;
+        res.locals.user=req.user;
     }
     next();
 }
