@@ -9,6 +9,7 @@ module.exports.addTodo=function(req,res){
         description:req.body.description,
         category:x,
         date:req.body.date,
+        user:req.user
     },function(err,newTodo){
         if(err){
             console.log('Error while creating new Todo');

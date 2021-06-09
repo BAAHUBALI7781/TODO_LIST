@@ -3,6 +3,9 @@ const port=8020;
 const app=express();
 const db=require('./config/mongoose');
 
+const passport=require('passport');
+const passportLocal=require('./config/passport-local');
+
 const ejsLayouts=require('express-ejs-layouts');
 
 app.use(express.static('assets'));
@@ -19,16 +22,35 @@ app.set('view engine','ejs');
 app.set('views','./views');
 
 // Routes
+const expressSession=require('express-session');
+const MongoStore = require('connect-mongo');
+app.use(expressSession({
+    name:'Tododo',
+    secret:'Something',
+    resave:false,
+    cookie:{
+        maxAge:(1000*60*100)
+    },
+    store:MongoStore.create({
+        mongoUrl:'mongodb://localhost/todo_list',
+        autoRemove:'disabled',
+    },function(err){
+        console.log(err);
+    })
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(passport.setAuthenticatedUser);
+
+
 app.use('/',require('./routes/index.js'));
 
-const expressSession=require('express-session')({
-    secret:'Something',
-    resave:true,
-    saveUninitialized:false
-});
+
 //Importing assets
 
-app.use(expressSession);
+
 app.listen(port,function(err){
     if(err)
     {

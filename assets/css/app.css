@@ -1,7 +1,4 @@
-body{
-    background-color: gray;
-    margin:0;
-}
+
 h1{
     color:black;
     text-align: center;
@@ -14,7 +11,7 @@ h1{
     margin:auto;
     background-color: white;
     padding:0px;
-    margin-top:120px;
+    margin-top:80px;
 }
 
 .form-fill{
@@ -83,6 +80,9 @@ option{
     flex-direction: column;
     margin-left:15px;
 }
+.desc_and_date b{
+    width:100%;
+}
 .date{
     font-size: 0.8rem;
 }
@@ -115,7 +115,7 @@ li{
     display:flex;
     align-items: center;
     justify-content: flex-start;
-    width:40%;
+    width:60%;
 }
 li:hover{
     background-color:lightgrey;

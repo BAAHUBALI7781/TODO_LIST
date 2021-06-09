@@ -1,2 +1,30 @@
-<h3 style="text-align: center;">Tododo</h3>
-<a href="/user/sign-up-page">Sign In</a>
+<link rel="stylesheet" href="/css/header.css">
+<header>
+    <h2>
+        <a href="/">Tododo</a>
+    </h2>
+
+    <div id="links">
+        <%if(locals.user){%>
+            <li>
+                <a href="/user/profile"><%=locals.user.name%></a>
+            </li>
+            <!-- &nbsp; <span>|</span> &nbsp; -->
+            <li>
+                <a href="/user/logout">Sign Out</a>
+            </li>
+
+        <%}else{%>
+            <li>
+                <a href="/user/sign-in-page">Sign In</a>
+            </li>
+            <!-- <li>|</li> -->
+            <li>
+                <a href="/user/sign-up-page">Sign Up</a>
+            </li>
+        <%}%>
+    </div>
+</header>
+
+
+
