@@ -1,6 +1,6 @@
 
 const DB_user='baahubali7781';
-const password=encodeURIComponent('Hello@12345');
+const password=encodeURIComponent('Hello%4012345');
 const DB_URL=`mongodb+srv://${DB_user}:${password}@cluster0.3hoof.mongodb.net/todo-list?retryWrites=true&w=majority`
 
 const mongoose=require('mongoose');
