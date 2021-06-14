@@ -3,7 +3,7 @@
 }
 
 .container {
-	width: 30%;
+	width: 33%;
 	display: flex;
 	flex-direction: column;
 	margin: 50px auto;
@@ -72,12 +72,31 @@ p{
 
 @media screen and (max-width:900px) {
 	.container {
-		width: 50%
+		width: 60%
+	}
+}
+@media screen and (max-width:600px) {
+	.container {
+		width: 70%;
+	}
+	.container .google-sign {
+		width: 50%;
+	}
+	.container button,
+	.container input{
+		width:75%;
 	}
 }
 
-@media screen and (max-width:700px) {
+@media screen and (max-width:450px) {
 	.container {
-		width: 70%
+		width: 90%;
+	}
+	.container .google-sign {
+		width: 50%;
+	}
+	.container button,
+	.container input{
+		width:80%;
 	}
 }

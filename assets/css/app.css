@@ -32,6 +32,7 @@ input{
     width:100%;
 }
 p{
+    font-size:1rem;
     margin: 3px;
 }
 select{
@@ -121,8 +122,15 @@ li:hover{
     background-color:lightgrey;
 }
 
+
+
 @media screen and (max-width:900px){
     .container{
         width:70%;
     }
-} 
+}
+@media screen and (max-width:600px){
+    .container{
+        width:95%;
+    }
+}  
