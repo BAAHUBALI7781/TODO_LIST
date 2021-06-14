@@ -21,10 +21,7 @@ app.set('view engine','ejs');
 //Setting the views(ejs)
 app.set('views','./views');
 
-// Routes
-const DB_user='baahubali7781';
-const password=encodeURIComponent('Hello%4012345');
-const DB_URL=`mongodb+srv://${DB_user}:${password}@cluster0.3hoof.mongodb.net/todo-list?retryWrites=true&w=majority`
+// Rout
 
 const expressSession=require('express-session');
 const MongoStore = require('connect-mongo');
@@ -36,7 +33,7 @@ app.use(expressSession({
         maxAge:(1000*60*100)
     },
     store:MongoStore.create({
-        mongoUrl:(DB_URL || 'mongodb://localhost/todo_list'),
+        mongoUrl:(process.env.MONGODB_URI || 'mongodb://localhost/todo_list'),
         autoRemove:'disabled',
     },function(err){
         console.log(err);
