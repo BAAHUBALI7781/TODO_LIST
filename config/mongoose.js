@@ -7,3 +7,4 @@ db.once('open',function(){
     console.log('Succesfully connected to database');
 });
 
+module.exports=mongoose;
