@@ -3,7 +3,7 @@
 <div class="container">
     <h1>TODO List</h1>
     <hr>
-    <form action="/create-todo" method="POST" class="form-fill" >
+    <form action="/create-todo" id="add_todo_form" method="POST" class="form-fill" >
         <div class="description">
             <p>Description</p>
             <input type="text" name="description" id="desc"  placeholder="What do you need to do?" required>
@@ -36,7 +36,7 @@
 
         <form action="/delete-todo" method="POST">
             
-            <ul>
+            <ul class="todo-list-container">
                 <% for(var key of todo_list){%>
                     <li class="single-todo">
                         <div class="check">
@@ -69,3 +69,5 @@
     </form>
     
 </div>
+
+<script src="/js/add_todo.js"></script>
