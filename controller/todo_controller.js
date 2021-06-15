@@ -1,26 +1,32 @@
 const TodoList = require("../model/todo");
 
 //Controller for adding a Todo
-module.exports.addTodo=function(req,res){
-    var x=req.body.category;
-    if(req.body.category=="Choose a Category")
-        x='';
-    TodoList.create({
-        description:req.body.description,
-        category:x,
-        date:req.body.date,
-        user:req.user
-    },function(err,newTodo){
-        if(err){
-            console.log('Error while creating new Todo');
-            alert('Description and Date are required!');
-            return res.redirect('/');
+module.exports.addTodo=async function(req,res){
+    try{
+        var x=req.body.category;
+        if(req.body.category=="Choose a Category")
+            x='';
+        let newTodo=await TodoList.create({
+            description:req.body.description,
+            category:x,
+            date:req.body.date,
+            user:req.user
+        });
+        if(req.xhr){
+            return res.status(200).json({
+                data:{
+                    todo:newTodo
+                },
+                message:'Added Todo'
+            });
         }
-        else
-        {
-            return res.redirect('/');
-        }
-    })
+        return res.redirect('/');
+    }catch(err){
+        console.log("Error");
+        return ;
+    }
+    
+
    
 };
 
