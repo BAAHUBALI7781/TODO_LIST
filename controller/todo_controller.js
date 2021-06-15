@@ -36,7 +36,7 @@ module.exports.deleteTodo=function(req,res){
     var x=req.body.check;
     if((typeof x)=="undefined")
     {
-        return res.redirect('/');
+        return;
     }
     else if((typeof x)=="string")
     {
@@ -45,7 +45,6 @@ module.exports.deleteTodo=function(req,res){
                 console.log('Error in deletion');
                 return;
             }
-            res.redirect('/');
         })
     }
     else
@@ -55,15 +54,21 @@ module.exports.deleteTodo=function(req,res){
             TodoList.findByIdAndDelete(x[i],function(err){
                 if(err){
                     console.log('Error in deletion');
-                    return;
                 }
                 
             });
               
         
         }
-        res.redirect('back'); 
       
+    }
+    if(req.xhr){
+        res.status(200).json({
+            data:{
+                todoId:req.body.check
+            },
+            message:'Deleted successfully'
+        })
     }
     
 }

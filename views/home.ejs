@@ -21,7 +21,7 @@
             </div>
             <div class="date">
                 <p>Due Date</p>
-                <input type="date" name="date" placeholder="dd/mm/yyyy" required>
+                <input type="date" id="due-data"name="date" placeholder="dd/mm/yyyy" required>
             </div>
         </div>
         <div class="buttons">
@@ -34,11 +34,11 @@
     </form>
     
 
-        <form action="/delete-todo" method="POST">
+        <form id="delete-todo-form" action="/delete-todo" method="POST">
             
             <ul class="todo-list-container">
                 <% for(var key of todo_list){%>
-                    <li class="single-todo">
+                    <li class="single-todo" id="todo-<%=key.id%>">
                         <div class="check">
                             <input type="checkbox" id="check" name="check" value="<%=key.id%>">
                             
