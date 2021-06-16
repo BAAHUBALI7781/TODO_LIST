@@ -4,7 +4,6 @@
 
         todoForm.submit(function(e){
             e.preventDefault();
-            
             $.ajax({
                 type:'post',
                 url:'/create-todo',
@@ -17,9 +16,12 @@
                 }
 
             })
-            $('#cat').option='Choose';
-            $('#due-date').value='';
-            $('#desc').value='';
+
+            e.target.elements.desc.value='';
+            e.target.elements.desc.focus();
+            e.target.elements.cat.value='Choose';
+            e.target.elements.due_data.value='dd-mm-yyyy';
+            
         });
     }
     let newTodoDOM=function(todo){
