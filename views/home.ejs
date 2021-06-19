@@ -23,6 +23,10 @@
                 <p>Due Date</p>
                 <input type="date" id="due_data" name="date" placeholder="dd/mm/yyyy" required>
             </div>
+            <div class="time">
+                <p>Due Time</p>
+                <input type="time" id="due-time" name="time" placeholder="hh:mm">
+            </div>
         </div>
         <div class="buttons">
             <button type="submit" class="btn btn-dark btn-1">
@@ -44,10 +48,18 @@
                             
                             <div class="desc_and_date">
                                 <b><span><%=key.description%></span></b>
-                                <span class="date">
-                                    <i class="fas fa-calendar-day"></i>
-                                <%=key.date%>
-                                </span>
+                                <div>
+                                    <span class="date">
+                                        <i class="fas fa-calendar-day"></i>
+                                    <%=key.date%>
+                                    </span>
+                                    &nbsp;
+                                    <span class="date">
+                                        <i class="fas fa-clock"></i>
+                                    <%=key.time%>
+                                    </span>
+                                </div>
+
                             </div>
                         </div>
                         

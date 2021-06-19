@@ -13,6 +13,10 @@ const todoSchema=new mongoose.Schema({
         required:true,
 
     },
+    time:{
+        type:'String',
+        required:true
+    },
     user:{
         type:mongoose.Schema.Types.ObjectId,
         ref:'User'
