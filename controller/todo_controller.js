@@ -11,6 +11,7 @@ module.exports.addTodo=async function(req,res){
             description:req.body.description,
             category:x,
             date:req.body.date,
+            time:req.body.time,
             user:req.user
         });
         newTodo=await newTodo.populate('user','name email').execPopulate();

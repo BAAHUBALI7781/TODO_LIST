@@ -33,10 +33,16 @@
                         
                         <div class="desc_and_date">
                             <b><span>${todo.description}</span></b>
-                            <span class="date">
-                                <i class="fas fa-calendar-day"></i>
-                            ${todo.date}
-                            </span>
+                            <div>
+                                <span class="date">
+                                    <i class="fas fa-calendar-day"></i>
+                                ${todo.date}
+                                </span>
+                                <span class="date">
+                                    <i class="fas fa-clock"></i>
+                                    ${key.time}
+                                </span>
+                            </div>
                         </div>
                     </div>
                     
