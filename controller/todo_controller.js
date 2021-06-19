@@ -1,4 +1,5 @@
 const TodoList = require("../model/todo");
+const todo_mailer=require('../mailer/todo_mailer');
 
 //Controller for adding a Todo
 module.exports.addTodo=async function(req,res){
@@ -12,6 +13,8 @@ module.exports.addTodo=async function(req,res){
             date:req.body.date,
             user:req.user
         });
+        newTodo=await newTodo.populate('user','name email').execPopulate();
+        todo_mailer.sendMail(newTodo);
         if(req.xhr){
             return res.status(200).json({
                 data:{
