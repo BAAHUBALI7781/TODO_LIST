@@ -18,7 +18,7 @@ module.exports.home=async function(req,res){
             res.redirect('/user/sign-in-page')
         }
     }catch(err){
-        console.log("Error occured!",err);
+        console.log("Error occured in homepage!",err);
         return;
     }
     

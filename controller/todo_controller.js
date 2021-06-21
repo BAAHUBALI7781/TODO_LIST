@@ -4,6 +4,7 @@ const todo_mailer=require('../mailer/todo_mailer');
 //Controller for adding a Todo
 module.exports.addTodo=async function(req,res){
     try{
+        console.log(req.body);
         var x=req.body.category;
         if(req.body.category=="Choose a Category")
             x='';
@@ -15,7 +16,9 @@ module.exports.addTodo=async function(req,res){
             user:req.user
         });
         newTodo=await newTodo.populate('user','name email').execPopulate();
+
         todo_mailer.sendMail(newTodo);
+        todo_mailer.scheduleMail(newTodo);
         if(req.xhr){
             return res.status(200).json({
                 data:{
@@ -26,7 +29,7 @@ module.exports.addTodo=async function(req,res){
         }
         return res.redirect('/');
     }catch(err){
-        console.log("Error");
+        console.log("Error in adding todo");
         return ;
     }
     

@@ -40,7 +40,7 @@
                                 </span>
                                 <span class="date">
                                     <i class="fas fa-clock"></i>
-                                    ${key.time}
+                                    ${todo.time}
                                 </span>
                             </div>
                         </div>

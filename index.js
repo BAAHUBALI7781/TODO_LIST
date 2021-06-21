@@ -14,15 +14,12 @@ app.use(express.urlencoded());
 
 app.use(ejsLayouts);
 
-// app.set('layout extractStyles',true);
-// app.set('layout extractScripts',true);
 
 //Setting the view Engine
 app.set('view engine','ejs');
 //Setting the views(ejs)
 app.set('views','./views');
 
-// Rout
 
 const expressSession=require('express-session');
 const MongoStore = require('connect-mongo');
@@ -56,7 +53,7 @@ app.use('/',require('./routes/index.js'));
 app.listen(port,function(err){
     if(err)
     {
-        console.log('Error found ',err);
+        console.log('Error in establishing server ',err);
         return;
     }
     else{
