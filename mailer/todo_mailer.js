@@ -22,6 +22,7 @@ exports.sendMail=function(todo){
 exports.scheduleMail=function(todo){
     var date=new Date(todo.date);
     var prev=new Date(date);
+
     prev.setDate(prev.getDate()-1);
     
     var time=todo.time;
@@ -29,6 +30,8 @@ exports.scheduleMail=function(todo){
     var min=time.substr(3,2);
     console.log("time ",hour, min);
     var onDate=new Date(prev.getFullYear(), prev.getMonth(), prev.getDate(), hour, min);
+    onDate.setHours(onDate.getHours() + 5);
+    onDate.setMinutes(onDate.getMinutes() + 30);
     console.log(onDate);
     Schedule.scheduleJob(onDate,function(){
         let html=nodemailer.renderTemplate({todo:todo},'./scheduleTodo.ejs')
