@@ -50,6 +50,11 @@ option{
     padding:0px 20px;
 }
 .options{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
     border:1px solid lightgray;
     padding:10px 20px;
 }

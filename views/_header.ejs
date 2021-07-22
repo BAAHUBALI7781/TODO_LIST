@@ -1,13 +1,13 @@
 <link rel="stylesheet" href="/css/header.css">
 <header>
     <h2>
-        <a href="/">Tododo</a>
+        <a href="/">DoTodo</a>
     </h2>
 
     <div id="links">
         <%if(locals.user){%>
             <li>
-                <a href="/user/profile"><%=locals.user.name%></a>
+                <%=locals.user.name%>
             </li>
             <!-- &nbsp; <span>|</span> &nbsp; -->
             <li>

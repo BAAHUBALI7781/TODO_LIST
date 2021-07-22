@@ -8,7 +8,7 @@ module.exports.home=async function(req,res){
             .sort('date')
     
             return res.render('home',{
-                title:'Todo List',
+                title:'DoTodo',
                 todo_list:todoList,
             });
         

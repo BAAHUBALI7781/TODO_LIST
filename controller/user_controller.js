@@ -1,12 +1,12 @@
 const User=require('../model/user');
 module.exports.sign_up_page=function(req,res){
     return res.render('signup',{
-        title:'Tododo signup page'
+        title:'DoTodo signup page'
     })
 }
 module.exports.sign_in_page=function(req,res){
     return res.render('signin',{
-        title:'Tododo signin page'
+        title:'DoTodo signin page'
     })
 }
 module.exports.sign_up=function(req,res){
@@ -53,9 +53,4 @@ module.exports.logout=function(req,res){
     req.logout();
     console.log("Successfully logout");
     return res.redirect('/');
-}
-module.exports.profile=function(req,res){
-    return res.render('profile',{
-        title:'Tododo | User profile'
-    })
 }
