@@ -19,10 +19,6 @@ h1{
     flex-direction: column;
 
 }
-.options{
-    display:flex;
-    justify-content: space-between;
-}
 input{
     outline:none;
     border:1px solid transparent;
@@ -41,10 +37,6 @@ select{
     background-color: white;
     width:100%;
 }
-option{
-    padding:5px;
-    border:1px solid transparent;
-}
 .description{
     border:0px 1px 1px 1px solid lightgray;
     padding:0px 20px;
@@ -54,7 +46,6 @@ option{
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    text-align: center;
     border:1px solid lightgray;
     padding:10px 20px;
 }
@@ -89,6 +80,7 @@ option{
 .desc_and_date b{
     width:100%;
 }
+
 .date{
     font-size: 0.8rem;
 }
@@ -137,5 +129,8 @@ li:hover{
 @media screen and (max-width:600px){
     .container{
         width:95%;
+    }
+    .time{
+        margin:auto;
     }
 }  
